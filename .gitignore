@@ -1,0 +1,5 @@
+# Bower
+www/bower_components
+
+# JetBrains IDEs
+.idea
