@@ -2,7 +2,7 @@
 
 class parent_class {
     function __construct() {
-        $this->db = new MysqliDb ('localhost', 'iinter_college', '4a3b4d44', 'iinter_college');
+        $this->db = new MysqliDb ('localhost', 'iinter_wh', '4a3b4d44', 'iinter_wh');
     }
     /*
      * Проверка авторизации
@@ -20,15 +20,26 @@ class parent_class {
                 return false;
             }
     }
-    public function GoodResponse($arr){
-        $arr['st']='success';
+    public function Success($arr){
+        header("HTTP/1.0 200 OK");
+        header('Status: 200 OK');
+        header('HTTP/1.0 200 OK');
         echo json_encode($arr);
     }
-    public function BadResponse($arr){
-        $arr['st']='error';
+    public function Unauthorized($arr){
+        header("HTTP/1.0 401 Unauthorized");
+        header('Status: 401 Unauthorized');
+        header('HTTP/1.0 401 Unauthorized');
+        echo json_encode($arr);
+    }
+    public function Error($arr){
+        header("HTTP/1.0 406 Not Acceptable");
+        header('Status: 406 Not Acceptable');
+        header('HTTP/1.0 406 Not Acceptable');
         echo json_encode($arr);
     }
     public function Hack(){
         echo 'Hack attempt';
+        die();
     }
 } 

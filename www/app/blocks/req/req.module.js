@@ -1,3 +1,1 @@
-/**
- * Created by Sergey on 26.05.2015.
- */
+angular.module('blocks.req', []);

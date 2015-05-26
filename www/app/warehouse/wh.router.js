@@ -1,6 +1,5 @@
 angular.module('app.wh')
-    .config(config)
-    .run(appRun);
+    .config(config);
 
 function config($stateProvider){
     $stateProvider
@@ -20,8 +19,4 @@ function config($stateProvider){
                 }
             }
         })
-}
-
-function appRun() {
-
 }
