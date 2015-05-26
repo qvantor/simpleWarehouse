@@ -1,5 +1,6 @@
 angular.module('app', [
     'app.core',
+    'app.wh',
     'blocks.logger'
 ])
     .config(configure)
@@ -9,10 +10,5 @@ function runApp($rootScope, $location) {
 }
 
 function configure($urlRouterProvider, $stateProvider) {
-    $stateProvider
-        .state('name', {
-            url: '/',
-            templateUrl: 'app/layout/index.html'
-        })
    $urlRouterProvider.otherwise('/');
 }

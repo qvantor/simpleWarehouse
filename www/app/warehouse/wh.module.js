@@ -1,1 +1,1 @@
-angular.module('app.ws',[]);
+angular.module('app.wh',[]);
