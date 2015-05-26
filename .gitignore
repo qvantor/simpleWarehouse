@@ -3,3 +3,10 @@ www/bower_components
 
 # JetBrains IDEs
 .idea
+
+#Good Sync
+a/_gsdata_
+www/_gsdata_
+
+#fonts
+www/content/fonts

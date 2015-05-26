@@ -7,7 +7,7 @@ class parent_protect extends parent_class{
          * только для зарегестрированных
          */
         if(!$this->check()){
-            $this->BadResponse(array('message'=>'Доступ запрещен'));
+            $this->Unauthorized(array('message'=>'Доступ запрещен'));
             exit;
         }else{
             $this->db->where('session_key',$_COOKIE['code_user']);

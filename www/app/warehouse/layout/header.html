@@ -1,1 +1,40 @@
-header
+<div class="menu">
+    <div class="container">
+        <a ng-click="NewOpen()">
+            <div class="col-xs-4 col-sm-2 button-top">
+                <h1>+</h1>
+                <p>Новая</p>
+            </div>
+        </a>
+        <a ui-sref="admin.stats">
+            <div class="col-xs-4 col-sm-2 button-top">
+                <h1><span class="glyphicon glyphicon-stats"></span> </h1>
+                <p>Статистика</p>
+            </div>
+        </a>
+        <a ui-sref="admin.estate">
+            <div class="col-xs-4 col-sm-2 button-top">
+                <h1><span class="glyphicon glyphicon-flash"></span> </h1>
+                <p>Доступная</p>
+            </div>
+        </a>
+        <a ui-sref="admin.archive">
+            <div class="col-xs-4 col-sm-2 button-top">
+                <h1><span class="glyphicon glyphicon-pushpin"></span> </h1>
+                <p>Архив</p>
+            </div>
+        </a>
+        <a ng-click="ProfileOpen()">
+            <div class="col-xs-4 col-sm-2 button-top">
+                <h1><span class="glyphicon glyphicon-user"></span> </h1>
+                <p>Профиль</p>
+            </div>
+        </a>
+        <a ng-click="out()">
+            <div class="col-xs-4 col-sm-2 button-top">
+                <h1><span class="glyphicon glyphicon-off"></span> </h1>
+                <p>Выход</p>
+            </div>
+        </a>
+    </div>
+</div>

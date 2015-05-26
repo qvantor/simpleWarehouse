@@ -4,7 +4,7 @@ angular
 
 req.$inject = ['$http', 'logger'];
 
-function req($http, logger) {
+function req($http, logger, $state) {
     var service = {
         post: post
     };
@@ -13,10 +13,18 @@ function req($http, logger) {
     /////////////////////
 
     function post(url, post, callback) {
-        $http.post(url, post).
-            success(callback).
+        var domain = 'http://devastor.ru/a/index.php?';
+
+        $http.post(domain+url, post).
+            success(function(data){
+                logger.success(data.m, data);
+                callback(data);
+            }).
             error(function(data, status, headers, config) {
-                logger.info(status,headers,config);
+                logger.error(data.m, data);
+                if (status == 401){
+                    $state.go('login');
+                }
             });
     }
 }

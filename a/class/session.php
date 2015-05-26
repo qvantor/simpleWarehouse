@@ -15,10 +15,10 @@ class session extends parent_class{
                 //если всё хорошо
                 $_POST['pass'] = $this->getMd5Pass($_POST['pass']);
                 $id = $this->db->insert ('user', $_POST);
-                $this->Success(array('message'=>'Регистрация удачна'));
+                $this->Success(array('m'=>'Регистрация удачна'));
             }else{
                 //Такой логин сущ
-                $this->Error(array('message'=>'Логин существует'));
+                $this->Error(array('m'=>'Логин существует'));
             }
         }else{
             //если поля пусты - форма скомпрометированна
@@ -60,10 +60,10 @@ class session extends parent_class{
                 setcookie("id", $_SESSION['user_id'], time()+60*60*24*30);
                 setcookie("code_user", $kapitohska, time()+60*60*24*30);
 
-                $this->Success(array('message'=>'Успешный вход'));
+                $this->Success(array('m'=>'Успешный вход'));
 
             }else{
-                $this->Error(array('message'=>'Неверный логин или пароль'));
+                $this->Error(array('m'=>'Неверный логин или пароль'));
             }
         }else{
             //если поля пусты - форма скомпрометированна
@@ -73,7 +73,7 @@ class session extends parent_class{
     public function out(){
         setcookie("id", "", time()+60*60*24*30);
         setcookie("code_user", "", time()+60*60*24*30);
-        $this->Success(array('message'=>'Успешный выход'));
+        $this->Success(array('m'=>'Успешный выход'));
     }
 
     private function  getMd5Pass($pass){
