@@ -5,7 +5,7 @@ angular.module('app.wh')
 function config($stateProvider){
     $stateProvider
         .state('wh', {
-            url: '/panel',
+            url: '/app',
             abstract: true,
             templateUrl: 'app/warehouse/layout/index.html'
         })
