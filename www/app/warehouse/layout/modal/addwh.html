@@ -1,0 +1,62 @@
+<div class="add">
+    <h1>Приход</h1>
+    <form class="form-horizontal" name="newForm">
+        <div class="form-group">
+            <label for="name" class="col-sm-3 control-label">Название</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="wh.name" id="name" placeholder="Название" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="count" class="col-sm-3 control-label">Количество</label>
+            <div class="col-sm-9">
+                <input type="number" ng-change="recalculate()" class="form-control" ng-model="wh.count" id="count" placeholder="Количество" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="type" class="col-sm-3 control-label">Еденица</label>
+            <div class="col-sm-9">
+                <select class="form-control" ng-model="wh.type" id="type" required>
+                    <option value="Штук" selected>
+                        Штук
+                    </option>
+                    <option value="Литров">
+                        Литров
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="price" class="col-sm-3 control-label">Цена покупки</label>
+            <div class="col-sm-9">
+                <input type="number" ng-change="recalculate()" ng-model="wh.price" class="form-control" id="price" placeholder="Цена" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="sum" class="col-sm-3 control-label">Сумма</label>
+            <div class="col-sm-9">
+                <input type="number" ng-model="wh.sum" class="form-control" id="sum" placeholder="Сумма" disabled>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="per" class="col-sm-3 control-label">Процент накрутки</label>
+            <div class="col-sm-9">
+                <input type="number" ng-change="recalculate()" ng-model="wh.per" class="form-control" id="per" placeholder="Процент накрутки" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="saleprice" class="col-sm-3 control-label">Цена продажи 1 шт.</label>
+            <div class="col-sm-9">
+                <input type="number" ng-change="recalculate()" ng-model="wh.priceone" class="form-control" id="saleprice" placeholder="Цена продажи" required>
+            </div>
+        </div>
+            <h5>Сумма продажи: {{wh.priceall}}</h5>
+            <h5>Прибыль: {{wh.profit}}</h5>
+        <div class="form-group">
+            <div ng-hide="newForm.$valid" class="alert">Форма заполнена не полностью</div>
+            <div class="col-sm-offset-3 col-sm-9">
+                <button ng-click="new()" ng-show="newForm.$valid"  class="btn btn-info">Добавить</button>
+            </div>
+        </div>
+    </form>
+</div>
