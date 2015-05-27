@@ -14,9 +14,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="type" class="col-sm-3 control-label">Еденица</label>
+            <label for="type" class="col-sm-3 control-label">Единица</label>
             <div class="col-sm-9">
-                <select class="form-control" ng-model="wh.type" id="type" required>
+                <select class="form-control" ng-model="wh.item" id="type" required>
                     <option value="Штук" selected>
                         Штук
                     </option>
@@ -33,12 +33,6 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="sum" class="col-sm-3 control-label">Сумма</label>
-            <div class="col-sm-9">
-                <input type="number" ng-model="wh.sum" class="form-control" id="sum" placeholder="Сумма" disabled>
-            </div>
-        </div>
-        <div class="form-group">
             <label for="per" class="col-sm-3 control-label">Процент накрутки</label>
             <div class="col-sm-9">
                 <input type="number" ng-change="recalculate()" ng-model="wh.per" class="form-control" id="per" placeholder="Процент накрутки" required>
@@ -50,12 +44,15 @@
                 <input type="number" ng-change="recalculate()" ng-model="wh.priceone" class="form-control" id="saleprice" placeholder="Цена продажи" required>
             </div>
         </div>
-            <h5>Сумма продажи: {{wh.priceall}}</h5>
-            <h5>Прибыль: {{wh.profit}}</h5>
+            <div class="col-sm-offset-3" ng-show="wh.profit">
+                <h5 class="buy">Сумма покупки: <span>{{wh.sum}} руб.</span></h5>
+                <h5>Сумма продажи: <span>{{wh.priceall}} руб.</span></h5>
+                <h4>Прибыль: <span>{{wh.profit}} руб.</span></h4>
+            </div>
         <div class="form-group">
             <div ng-hide="newForm.$valid" class="alert">Форма заполнена не полностью</div>
             <div class="col-sm-offset-3 col-sm-9">
-                <button ng-click="new()" ng-show="newForm.$valid"  class="btn btn-info">Добавить</button>
+                <button ng-click="save()" ng-show="newForm.$valid"  class="btn btn-info">Добавить</button>
             </div>
         </div>
     </form>

@@ -1,1 +1,26 @@
-panel
+﻿<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>№</th>
+        <th>Наименование</th>
+        <th>Количество</th>
+        <th>Цена покупки</th>
+        <th>Цена продажи</th>
+        <th>Тип</th>
+        <th>Сумма покупки</th>
+        <th>Сумма продажи</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="i in items">
+            <th>{{i.id}}</th>
+            <th>{{i.name}}</th>
+            <th>{{i.count}}</th>
+            <th>{{i.price}}</th>
+            <th>{{}}</th>
+            <th>{{i.item}}</th>
+            <th>{{}}</th>
+            <th>{{}}</th>
+        </tr>
+    </tbody>
+</table>

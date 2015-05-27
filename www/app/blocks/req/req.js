@@ -2,7 +2,7 @@ angular
     .module('blocks.req')
     .factory('req', req);
 
-req.$inject = ['$http', 'logger'];
+req.$inject = ['$http', 'logger', '$state'];
 
 function req($http, logger, $state) {
     var service = {
@@ -17,7 +17,9 @@ function req($http, logger, $state) {
 
         $http.post(domain+url, post).
             success(function(data){
-                logger.success(data.m, data);
+                if(data.m) {
+                    logger.success(data.m, data);
+                }
                 callback(data);
             }).
             error(function(data, status, headers, config) {

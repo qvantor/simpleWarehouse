@@ -3,8 +3,10 @@ angular.module('app.wh')
     .controller('HeaderCtrl', Header)
     .controller('AddCtrl', Add);
 
-function Warehouse($scope){
-
+function Warehouse($scope, req){
+    req.post('c=warehouse&a=getAll', {}, function(res){
+        $scope.items = res;
+    });
 }
 function Header($scope, req, $state, $modal){
     $scope.out = function(){
@@ -20,25 +22,22 @@ function Header($scope, req, $state, $modal){
         });
     }
 }
-function Add($scope, logger){
+function Add($scope, req, $modalInstance, calc){
     $scope.data = {
-        type: 'Øòóê',
+        item: 'Ð¨Ñ‚ÑƒÐº',
         count: 1,
         per: 50
     };
+
     $scope.recalculate = function(){
         $scope.wh = $scope.data;
-
-        var wh = $scope.wh;
-        wh.sum = Math.round(wh.price * wh.count);
-        if (wh.price > 99) {
-            wh.priceone = Math.ceil((wh.price + (wh.price * (wh.per / 100))) / 10) * 10;
-        }else{
-            wh.priceone = Math.ceil(wh.price + (wh.price * (wh.per / 100))) ;
-        }
-        wh.priceall = wh.priceone * wh.count;
-        wh.profit = wh.priceall - wh.sum;
-
+        $scope.wh = calc.calc($scope.wh);
     }
+
     $scope.recalculate();
+    $scope.save = function(){
+        req.post('c=warehouse&a=add', $scope.wh, function(res){
+            $modalInstance.close();
+        });
+    }
 }

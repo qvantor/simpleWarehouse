@@ -9,9 +9,9 @@ class parent_class {
      */
     public function check(){
             if(!empty($_COOKIE["id"])&&!empty($_COOKIE["code_user"])){
-                $this->db->where('id_seller',$_COOKIE["id"]);
+                $this->db->where('id_user',$_COOKIE["id"]);
                 $this->db->where('session_key',$_COOKIE["code_user"]);
-                if($this->db->get ('session')){
+                if($this->db->get('session')){
                     return true;
                 }else{
                     return false;
