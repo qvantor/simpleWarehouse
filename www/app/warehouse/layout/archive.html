@@ -2,7 +2,7 @@
     <thead>
     <tr>
         <th>№</th>
-        <th>Наименование</th>
+        <th><input type="text" placeholder="Наименование" ng-model="searchText"></th>
         <th>Кол.</th>
         <th>Куплено</th>
         <th>Продано</th>
@@ -12,7 +12,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="i in archive">
+    <tr ng-repeat="i in archive | filter:searchText">
         <th>{{i.id}}</th>
         <th>{{i.name}}</th>
         <th>{{i.count}}</th>

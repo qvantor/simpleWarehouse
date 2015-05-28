@@ -2,7 +2,7 @@
     <thead>
     <tr>
         <th>№</th>
-        <th>Наименование</th>
+        <th><input type="text" placeholder="Наименование" ng-model="searchText"></th>
         <th>Кол.</th>
         <th>Куплено</th>
         <th>Продажа</th>
@@ -13,7 +13,7 @@
     </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="i in items">
+        <tr ng-repeat="i in items | filter:searchText">
             <th>{{i.id}}</th>
             <th>{{i.name}}</th>
             <th>{{i.count}}</th>
@@ -30,6 +30,17 @@
                     <button ng-click="sold(i.id)" class="btn btn-success">Ok</button>
                 </div>
             </th>
+        </tr>
+        <tr class="total">
+            <th></th>
+            <th>Итого:</th>
+            <th>{{total.count}} ед.</th>
+            <th></th>
+            <th></th>
+            <th>{{total.sum}} руб.</th>
+            <th>{{total.priceall}} руб.</th>
+            <th>Ожидаемая <br />прибыль</th>
+            <th class="profit">{{total.profit}} руб.</th>
         </tr>
     </tbody>
 </table>
