@@ -3,6 +3,7 @@ angular.module('app', [
 
     'app.wh',
     'app.arch',
+    'app.stat',
     'app.auth',
 
     'blocks.logger',

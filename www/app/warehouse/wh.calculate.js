@@ -3,7 +3,8 @@ angular.module('app.wh')
 
 function calc(){
     var service = {
-        calc: calculate
+        calc: calculate,
+        getProfit : profit
     };
     return service;
 
@@ -18,5 +19,9 @@ function calc(){
         wh.priceall = wh.priceone * wh.count;
         wh.profit = wh.priceall - wh.sum;
         return wh;
+    }
+
+    function profit(data){
+
     }
 }

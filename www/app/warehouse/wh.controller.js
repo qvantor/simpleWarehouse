@@ -20,6 +20,7 @@ function Warehouse($scope, req, calc, $modal){
         });
     }
     $scope.update();
+
     $scope.edit = function(id){
         var modalInstance = $modal.open({
             animation: true,
@@ -89,6 +90,7 @@ function Edit($scope, calc, item, req, $modalInstance){
 
     $scope.save = function(){
         req.post('c=warehouse&a=update', $scope.wh, function(res){
+
             $modalInstance.close();
         });
     }
