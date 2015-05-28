@@ -1,0 +1,26 @@
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>№</th>
+        <th>Наименование</th>
+        <th>Кол.</th>
+        <th>Куплено</th>
+        <th>Продано</th>
+        <th>Сумма продажи</th>
+        <th>Прибыль</th>
+        <th>Дата</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="i in archive">
+        <th>{{i.id}}</th>
+        <th>{{i.name}}</th>
+        <th>{{i.count}}</th>
+        <th>{{i.price}} руб.</th>
+        <th>{{i.priceone}} руб.</th>
+        <th>{{i.sum}} руб.</th>
+        <th>{{i.profit}} руб.</th>
+        <th>{{i.date}}</th>
+    </tr>
+    </tbody>
+</table>

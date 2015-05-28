@@ -18,7 +18,7 @@ function Warehouse($scope, req, calc, $modal){
             templateUrl: 'app/warehouse/layout/modal/addwh.html',
             resolve: {
                 item: function () {
-                    return $scope.items[id-1];
+                    return $scope.items[id];
                 }
             }
         });
@@ -29,7 +29,9 @@ function Warehouse($scope, req, calc, $modal){
             id: id,
             count: $scope.sold.count[id]
         }
-        req.post('c=warehouse&a=sold', arr, function(res){});
+        req.post('c=warehouse&a=sold', arr, function(res){
+            $scope.sold.count ={};
+        });
     }
 }
 function Header($scope, req, $state, $modal){

@@ -2,6 +2,7 @@ angular.module('app', [
     'app.core',
 
     'app.wh',
+    'app.arch',
     'app.auth',
 
     'blocks.logger',

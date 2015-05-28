@@ -10,7 +10,6 @@ function config($stateProvider){
         })
         .state('wh.p', {
             url: '/p',
-            templateUrl: 'app/warehouse/layout/index.html',
             views: {
                 'body': {
                     controller: 'WarehouseCtrl',

@@ -3,9 +3,9 @@
     <tr>
         <th>№</th>
         <th>Наименование</th>
-        <th>Количество</th>
-        <th>Цена покупки</th>
-        <th>Цена продажи</th>
+        <th>Кол.</th>
+        <th>Куплено</th>
+        <th>Продажа</th>
         <th>Сумма покупки</th>
         <th>Сумма продажи</th>
         <th>Изменить</th>
@@ -21,13 +21,13 @@
             <th>{{i.priceone}}</th>
             <th>{{i.sum}}</th>
             <th>{{i.priceall}}</th>
-            <th><button class="btn btn-info" ng-click="edit(i.id)">Изменить</button></th>
+            <th><button class="btn btn-info" ng-click="edit($index)">Изменить</button></th>
             <th>
                 <div class="col-xs-4">
                     <input ng-model="sold.count[i.id]" type="number" style="width: 60px">
                 </div>
-                <div class="col-xs-7 col-xs-offset-1">
-                    <button ng-click="sold(i.id)" class="btn btn-success">Продано</button>
+                <div ng-show="sold.count[i.id]" class="col-xs-7 col-xs-offset-1">
+                    <button ng-click="sold(i.id)" class="btn btn-success">Ok</button>
                 </div>
             </th>
         </tr>

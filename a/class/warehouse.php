@@ -46,7 +46,7 @@ class warehouse extends parent_protect{
         $sold['wh_id'] = $sold['id'];
         $sold['date'] = date("y-m-d");
         unset ($sold['id']);
-        $result = $this->db->insert('sold',$sold);
+        $result = $this->db->insert('archive',$sold);
 
         if($result){
             $clrSold['count'] = $clrSold['count'] - $_POST['count'];
