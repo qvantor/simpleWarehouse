@@ -1,5 +1,5 @@
 <div class="add">
-    <h1>Приход</h1>
+    <h1>{{action}}</h1>
     <form class="form-horizontal" name="newForm">
         <div class="form-group">
             <label for="name" class="col-sm-3 control-label">Название</label>
@@ -52,7 +52,7 @@
         <div class="form-group">
             <div ng-hide="newForm.$valid" class="alert">Форма заполнена не полностью</div>
             <div class="col-sm-offset-3 col-sm-9">
-                <button ng-click="save()" ng-show="newForm.$valid"  class="btn btn-info">Добавить</button>
+                <button ng-click="save()" ng-show="newForm.$valid"  class="btn btn-info">{{action}}</button>
             </div>
         </div>
     </form>
