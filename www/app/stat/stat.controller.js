@@ -10,7 +10,7 @@ function Stat($scope, req, calc){
             a[i] = calc.calc(res.archive[i]);
             curProfit += (a[i]['count']*(a[i]['price']+(a[i]['price']*(a[i]['per']/100))))-a[i]['count']*a[i]['price'];
 
-            
+
         }
 
 
