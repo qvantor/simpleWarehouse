@@ -3,14 +3,42 @@ angular.module('app.stat')
 
 function Stat($scope, req, calc){
     req.post('c=stat&a=get', {}, function(res){
-        a = {};
-        curProfit = 0;
+        profit = calc.profit(res);
 
-        for (var i = 0; i < res.archive.length; i++) {
-            a[i] = calc.calc(res.archive[i]);
-            curProfit += (a[i]['count']*(a[i]['price']+(a[i]['price']*(a[i]['per']/100))))-a[i]['count']*a[i]['price'];
-
-
+        $scope.chartConfig = {
+            options: {
+                chart: {
+                    type: 'area'
+                },
+                rangeSelector: {
+                    enabled: true
+                },
+                navigator: {
+                    enabled: true
+                },
+                "xAxis": {
+                    type: 'datetime',
+                    title: {
+                        text: 'Дата'
+                    }
+                },
+                "yAxis": {
+                    title: {
+                        text: 'Сумма'
+                    }
+                }
+            },
+            series: [
+                {
+                    id: 1,
+                    name:'Рублей',
+                    data: profit['chart'],
+                    color: '#3498db'
+                }
+            ],
+            title: {
+                text: 'Прибыль'
+            }
         }
 
 

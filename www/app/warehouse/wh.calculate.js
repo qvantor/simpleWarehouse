@@ -4,7 +4,7 @@ angular.module('app.wh')
 function calc(){
     var service = {
         calc: calculate,
-        getProfit : profit
+        profit : profit
     };
     return service;
 
@@ -21,7 +21,45 @@ function calc(){
         return wh;
     }
 
-    function profit(data){
+    function profit(res){
+        a = {};
+        curProfit = 0;
+        data = res.archive[0].date;
+        j = 0;
+        profit = [];
+        dayprofit = 0;
 
+        for (var i = 0; i < res.archive.length; i++) {
+            a[i] = this.calc(res.archive[i]);
+            curProfit += (a[i]['count']*(a[i]['price']+(a[i]['price']*(a[i]['per']/100))))-a[i]['count']*a[i]['price'];
+
+            if(data == a[i]['date']){
+                dayprofit += a[i]['profit'];
+                if(res.archive.length-1 == i){
+                    dayprofit += a[i]['profit'];
+                    profit.push([data, dayprofit]);
+                }
+            }else{
+                if(res.archive.length-1 == i){
+                    dayprofit += a[i]['profit'];
+                    profit.push([data, dayprofit]);
+                }else{
+                    profit.push([data, dayprofit]);
+                }
+                dayprofit = 0;
+                dayprofit += a[i]['profit'];
+                data = a[i]['date'];
+            }
+        }
+        /*
+         for(var i=0; i<profit.length; i++){
+         ar = profit[i][0].split('-');
+         profit[i][0] = Date.UTC(ar[0],ar[1],ar[2]);
+         }
+         */
+        return {
+            chart: profit,
+            profit: curProfit
+        };
     }
 }
