@@ -21,6 +21,8 @@ function Warehouse($scope, req, calc, $modal){
     }
     $scope.update();
 
+    $scope.$on("updateWH",function () {$scope.update();});
+
     $scope.edit = function(id){
         var modalInstance = $modal.open({
             animation: true,
@@ -58,7 +60,7 @@ function Header($scope, req, $state, $modal){
         });
     }
 }
-function Add($scope, req, $modalInstance, calc){
+function Add($scope, req, $modalInstance, calc, $rootScope){
     $scope.data = {
         item: 'Штук',
         count: 1,
@@ -73,12 +75,13 @@ function Add($scope, req, $modalInstance, calc){
     $scope.recalculate();
     $scope.save = function(){
         req.post('c=warehouse&a=add', $scope.wh, function(res){
+            $rootScope.$broadcast("updateWH");
             $modalInstance.close();
         });
     }
 }
 
-function Edit($scope, calc, item, req, $modalInstance){
+function Edit($scope, calc, item, req, $modalInstance, $rootScope){
     $scope.action = 'Изменить';
 
     $scope.recalculate = function(){
@@ -90,7 +93,7 @@ function Edit($scope, calc, item, req, $modalInstance){
 
     $scope.save = function(){
         req.post('c=warehouse&a=update', $scope.wh, function(res){
-
+            $rootScope.$broadcast("updateWH");
             $modalInstance.close();
         });
     }
