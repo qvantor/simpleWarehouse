@@ -41,7 +41,7 @@
         <div class="form-group">
             <label for="saleprice" class="col-sm-3 control-label">Цена продажи 1 шт.</label>
             <div class="col-sm-9">
-                <input type="number" ng-change="recalculate()" ng-model="wh.priceone" class="form-control" id="saleprice" placeholder="Цена продажи" required>
+                <input type="number" ng-change="recalculate(true)" ng-model="wh.priceone" class="form-control" id="saleprice" placeholder="Цена продажи" required>
             </div>
         </div>
             <div class="col-sm-offset-3" ng-show="wh.profit">

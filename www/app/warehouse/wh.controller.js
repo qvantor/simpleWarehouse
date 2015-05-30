@@ -67,9 +67,9 @@ function Add($scope, req, $modalInstance, calc, $rootScope){
         per: 50
     };
     $scope.action = 'Добавить';
-    $scope.recalculate = function(){
-        $scope.wh = $scope.data;
-        $scope.wh = calc.calc($scope.wh);
+    $scope.recalculate = function(per){
+       $scope.wh = $scope.data;
+       $scope.wh = calc.calc($scope.wh, per);
     }
 
     $scope.recalculate();
